@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>krickert-maxpathontree</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>build</name>
+			<type>2</type>
+			<location>/Users/krickert/Desktop/GraphQuestion/build</location>
+		</link>
+		<link>
+			<name>main</name>
+			<type>2</type>
+			<location>/Users/krickert/Documents/workspace/krickert-maxpath/src/main</location>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<location>/Users/krickert/Desktop/GraphQuestion/src</location>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<location>/Users/krickert/Documents/workspace/krickert-maxpath/src/test</location>
+		</link>
+	</linkedResources>
+</projectDescription>

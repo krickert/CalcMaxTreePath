@@ -1,0 +1,66 @@
+<project name="krickert-maxpath" default="jar" basedir=".">
+    <description>
+    Sample build file for the code sample assignment
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src/main"/>
+  <property name="test.src" location="src/test"/>
+  <property name="build" location="build"/>
+  <property name="test.build" location="testbuild"/>
+  <property name="junit.jar" location="lib/junit-4.8.2.jar"/>
+  <property name="dist"  location="dist"/>
+  <property name="test.class.name" value="com.krickert.algorithm.CalcMaxTreePathTest" />
+
+  <path id="test.classpath">
+    <pathelement location="${build}" />
+    <pathelement location="${test.build}" />
+    <pathelement location="${junit.jar}" />
+  </path>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+    <mkdir dir="${test.build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="compile-tests" depends="compile"
+        description="compile the test source " >
+    <!-- Compile the test java code from ${test.src} into ${test.build} --> 
+    <javac srcdir="${test.src}" destdir="${test.build}">
+      <classpath refid="test.classpath"/>
+    </javac>
+  </target>
+ 
+  <target name="test" depends="compile-tests">
+    <junit fork="yes" haltonfailure="yes">
+      <test name="${test.class.name}" />
+      <formatter type="plain" usefile="false" />
+      <classpath refid="test.classpath" />
+    </junit>
+  </target>
+      	
+  <target name="jar" depends="compile, compile-tests, test">
+    <mkdir dir="lib"/>
+    <jar destfile="lib/krickert-maxpath.jar" basedir="${build}">
+        <manifest>
+            <attribute name="Main-Class" value="com.krickert.algorithm.CalcMaxTreePath"/>
+        </manifest>
+    </jar>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${test.build}"/>
+  </target>
+</project>
