@@ -30,7 +30,8 @@ public class CalcMaxTreePath {
   public static void main(String args[]) throws IOException {
     InputStream in = getInputStream(args);
     CalcMaxTreePath treePathProcessor = new CalcMaxTreePath();
-    treePathProcessor.process(in);
+    MaxPathNode answer = treePathProcessor.process(in);
+    System.out.println(answer);
   }
 
   /**
